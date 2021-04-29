@@ -1,5 +1,5 @@
 # wc-vue-study
-
+学习总结vue
 ## Project setup
 ```
 npm install
