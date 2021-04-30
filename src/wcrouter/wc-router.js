@@ -17,6 +17,9 @@ class WcRouter {
             this.current = window.location.hash.slice(1)
         })
     }
+    push(path){
+        this.current = path
+    }
 }
 
 // 插件要实现一个install方法
