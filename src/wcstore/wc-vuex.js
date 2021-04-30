@@ -16,6 +16,8 @@ class Store {
                 }
             }
         })
+        // 如果是对象方法，需要绑定this
+        this.commit = this.commit.bind(this)
     }
     get state() {
         return this._vm._data.$$state
@@ -32,13 +34,14 @@ class Store {
         return obj
     }
 
-    commit = (type) => {
+    commit(type) {
         if (!this._mutations[type]) {
             console.error(`没有mutation--${type}`);
             return
         }
         this._mutations[type](this.state)
     }
+    // 如果是函数方法，不需要绑定this
     dispatch = (type) => {
         if (!this._actions[type]) {
             console.error(`没有actions--${type}`);
